@@ -25,5 +25,7 @@ class RumahController extends Controller
 
         // Kirim data message ke view home.blade.php
         return view('home', ['message' => $dataMessage]);
+
+        
     }
 }
