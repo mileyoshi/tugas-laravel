@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RumahController;
-use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -18,7 +18,12 @@ Route::get('/form', function () {
 
 Route::get('/book', [BookController::class, 'index']);
 
-//Route::get('/home', [RumahController::class, 'index']); // Untuk menampilkan form
-//Route::post('/home', [RumahController::class, 'submit']); // Untuk mengirim form
-Route::get('/create', [StoreController::class, 'Store']);
+Route::get('/home', [RumahController::class, 'index']); // Untuk menampilkan form
+Route::post('/home', [RumahController::class, 'submit']); // Untuk mengirim form
+Route::get('/create', [StoreController::class, 'store']);
 Route::get('/show', [StoreController::class, 'show']);
+Route::get('/products/{id}/edit', [StoreController::class,'edit']);
+Route::put('/products/{id}', [StoreController::class, 'update']);
+Route::delete('/products/{id}', [StoreController::class, 'destroy']);
+Route::get('/input',[StoreController::class,'input']);
+Route::post('/create',[StoreController::class,'store']);
